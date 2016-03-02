@@ -1,6 +1,7 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
+    'productWatermark' => false,
     'users' => [
         '1' => [
             'id' => '1',
