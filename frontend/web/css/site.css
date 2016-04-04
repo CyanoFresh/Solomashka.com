@@ -187,6 +187,7 @@ ul, ol {
 /* Product Panel */
 .panel-product {
     display: block;
+    height: 450px;
     text-align: center;
     transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;

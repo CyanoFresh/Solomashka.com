@@ -19,9 +19,9 @@ Icon::map($this, Icon::FA);
 $pages = Page::findAll(['menu' => true]);
 ?>
 <!--
-Solomashka.com built on Yii2 Framework
-@author Alex Solomaha <cyanofresh@gmail.com> (CyanoFresh)
-@link http://solomaha.me/
+Built on Yii2 Framework
+Author: Alex Solomaha <cyanofresh@gmail.com> (CyanoFresh)
+Links: http://solomaha.pp.ua/ http://vk.com/alexsolomaha
 -->
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ Solomashka.com built on Yii2 Framework
         <?php
         NavBar::begin([
             'id' => 'menu',
-            'brandLabel' => Yii::$app->name,
+            'brandLabel' => 'Solomashka<span class="hidden-xs"> - интернет-магазин дизайнерских украшений</span>',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-inverse navbar-fixed-top',
