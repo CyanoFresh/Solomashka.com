@@ -24,13 +24,17 @@ $this->params['breadcrumbs'][] = [
 ];
 $this->params['breadcrumbs'][] = $model->name;
 
+$mainImgSrc = Yii::$app->urlManager->baseUrl . '/uploads/product/' . $model->id . '/main.jpg';
+
 // Meta tags
 $this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $model->meta_keywords]);
+$this->registerMetaTag(['name' => 'og:image', 'content' => $mainImgSrc]);
+$this->registerLinkTag(['rel' => 'image_src', 'href' => $mainImgSrc]);
 
 // Gallery images
 $galleryItems[] = [
-    'src' => Yii::$app->urlManager->baseUrl . '/uploads/product/' . $model->id . '/main.jpg',
+    'src' => $mainImgSrc,
     'options' => [
         'title' => $model->name,
     ],
