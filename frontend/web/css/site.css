@@ -322,5 +322,5 @@ a.desc:after {
 }
 
 .pagination li a {
-    background: #fff;
+    background: #fff !important;
 }
