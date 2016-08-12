@@ -4586,7 +4586,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     line-height: 1.4;
     text-decoration: none;
     color: #151273;
-    background-color: rgba(0, 0, 0, 0);
+    /*background-color: rgba(0, 0, 0, 0);*/
     border: 1px solid rgba(0, 0, 0, 0);
     margin-left: -1px;
 }
