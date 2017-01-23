@@ -24,7 +24,7 @@ return [
             'cartId' => 'yii2shop',
         ],
         'formatter' => [
-            'currencyCode' => 'UAH',
+            'currencyCode' => 'USD',
         ],
     ],
 ];
