@@ -1,24 +1,6 @@
 {
-  "name": "cyanofresh/yii2shop",
-  "description": "Online Shop on Yii2",
-  "keywords": [
-    "yii2",
-    "framework",
-    "advanced",
-    "application template",
-    "shop",
-    "online",
-    "e-commerce"
-  ],
-  "homepage": "http://yii2shop.solomaha.me/",
-  "type": "project",
-  "license": "BSD-3-Clause",
-  "support": {
-    "issues": "https://github.com/CyanoFresh/yii2shop/issues",
-    "wiki": "https://github.com/CyanoFresh/yii2shop/wiki/",
-    "source": "https://github.com/CyanoFresh/yii2shop"
-  },
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "php": ">=5.4.0",
     "yiisoft/yii2": "*",
@@ -26,7 +8,7 @@
     "yiisoft/yii2-swiftmailer": "*",
     "omnilight/yii2-shopping-cart": "*",
     "kartik-v/yii2-widgets": "*",
-    "zelenin/yii2-slug-behavior": "~0.2@stable",
+    "zelenin/yii2-slug-behavior": "~1.5.1",
     "vova07/yii2-imperavi-widget": "*",
     "2amigos/yii2-gallery-widget": "*",
     "himiklab/yii2-sortable-grid-view-widget": "*",
