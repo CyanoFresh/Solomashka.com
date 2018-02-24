@@ -19,6 +19,6 @@
 return [
     'Home' => 'Главная',
     'Last products' => 'Последние товары',
-    'Please contact us if you think this is a server error. Thank you.' => 'Пожалуйста, свжитесь с нами если Вы считаете, что это серверная ошибка. Спасибо.',
+    'Please contact us if you think this is a server error. Thank you.' => 'Пожалуйста, свяжитесь с нами если Вы считаете, что это серверная ошибка. Спасибо.',
     'The above error occurred while the Web server was processing your request.' => 'Эта ошибка произошла при обработке вашего запроса',
 ];

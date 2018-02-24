@@ -19,7 +19,6 @@ Icon::map($this, Icon::FA);
 $pages = Page::findAll(['menu' => true]);
 ?>
 <!--
-Built on Yii2 Framework
 Author: Alex Solomaha <cyanofresh@gmail.com> (CyanoFresh)
 Links: http://solomaha.com/ http://vk.com/alexsolomaha
 -->
@@ -31,6 +30,8 @@ Links: http://solomaha.com/ http://vk.com/alexsolomaha
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?> - <?= Yii::$app->name ?></title>
+    <meta name="description" content="Интернет магазин с украшениями ручной работы, браслеты, браслеты шамбала, браслеты кожаные, колье, бусы, кулоны, воздушки, серьги, кольца, броши.">
+    <meta name="keywords" content="hand made, аметист купить, бижутерия украина, браслеты кожаные, браслеты мужские, браслеты шамбала купить, броши цветы, интернет магазин бижутерии, кулоны купить в украине, купить бусы handmade, купить воздушка, купить кольцо ручная работа, украина интернет магазин бижутерии, украшения хендмейд, украшения ручной работы, украшения из камня">
     <?php $this->head() ?>
 </head>
 <body>
