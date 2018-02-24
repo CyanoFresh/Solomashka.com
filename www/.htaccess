@@ -9,8 +9,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # otherwise forward it to index.php
 RewriteRule . index.php
 
-Options +FollowSymLinks
-
 <IfModule mod_autoindex.c>
   Options -Indexes
 </IfModule>
