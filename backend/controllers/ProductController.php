@@ -84,14 +84,14 @@ class ProductController extends Controller
 
             if ($model->validate() && $model->save() && $model->image) {
                 // Working directory
-                $dir = Yii::getAlias('@frontend/web/uploads/product/' . $model->id);
+                $dir = Yii::getAlias('@frontend_webroot/uploads/product/' . $model->id);
                 FileHelper::createDirectory($dir);
 
                 // Save main image
                 $model->image->saveAs($dir . '/main.jpg');
 
                 if (Yii::$app->params['productWatermark']) {
-                    $watermark = imagecreatefrompng(Yii::getAlias('@frontend/web/uploads/watermark.png'));
+                    $watermark = imagecreatefrompng(Yii::getAlias('@frontend_webroot/uploads/watermark.png'));
                     $watermark_width = imagesx($watermark);
                     $watermark_height = imagesy($watermark);
 
@@ -100,7 +100,7 @@ class ProductController extends Controller
                     $startx = $size[0] - $watermark_width;
                     $starty = $size[1] - $watermark_height;
 
-                    Imagine::watermark($dir . '/main.jpg', '@frontend/web/uploads/watermark.png', [
+                    Imagine::watermark($dir . '/main.jpg', '@frontend_webroot/uploads/watermark.png', [
                         $startx,
                         $starty,
                     ])->save($dir . '/main.jpg', ['quality' => 100]);
@@ -116,7 +116,7 @@ class ProductController extends Controller
                         $image->saveAs($dir . '/' . $imageModel->id . '.jpg');
 
                         if (Yii::$app->params['productWatermark']) {
-                            $watermark = imagecreatefrompng(Yii::getAlias('@frontend/web/uploads/watermark.png'));
+                            $watermark = imagecreatefrompng(Yii::getAlias('@frontend_webroot/uploads/watermark.png'));
                             $watermark_width = imagesx($watermark);
                             $watermark_height = imagesy($watermark);
 
@@ -126,7 +126,7 @@ class ProductController extends Controller
                             $starty = $size[1] - $watermark_height;
 
                             Imagine::watermark($dir . '/' . $imageModel->id . '.jpg',
-                                '@frontend/web/uploads/watermark.png',
+                                '@frontend_webroot/uploads/watermark.png',
                                 [
                                     $startx,
                                     $starty,
@@ -159,14 +159,16 @@ class ProductController extends Controller
             $model->images = UploadedFile::getInstances($model, 'images');
 
             if ($model->validate() && $model->save()) {
-                $dir = Yii::getAlias('@frontend/web/uploads/product/' . $model->id);
+                $dir = Yii::getAlias('@frontend_webroot/uploads/product/' . $model->id);
+
+                FileHelper::createDirectory($dir);
 
                 if ($model->image) {
                     // Save main image
                     $model->image->saveAs($dir . '/main.jpg');
 
                     if (Yii::$app->params['productWatermark']) {
-                        $watermark = imagecreatefrompng(Yii::getAlias('@frontend/web/uploads/watermark.png'));
+                        $watermark = imagecreatefrompng(Yii::getAlias('@frontend_webroot/uploads/watermark.png'));
                         $watermark_width = imagesx($watermark);
                         $watermark_height = imagesy($watermark);
 
@@ -175,7 +177,7 @@ class ProductController extends Controller
                         $startx = $size[0] - $watermark_width;
                         $starty = $size[1] - $watermark_height;
 
-                        Imagine::watermark($dir . '/main.jpg', '@frontend/web/uploads/watermark.png', [
+                        Imagine::watermark($dir . '/main.jpg', '@frontend_webroot/uploads/watermark.png', [
                             $startx,
                             $starty,
                         ])->save($dir . '/main.jpg', ['quality' => 100]);
@@ -204,7 +206,7 @@ class ProductController extends Controller
                         $image->saveAs($dir . '/' . $imageModel->id . '.jpg');
 
                         if (Yii::$app->params['productWatermark']) {
-                            $watermark = imagecreatefrompng(Yii::getAlias('@frontend/web/uploads/watermark.png'));
+                            $watermark = imagecreatefrompng(Yii::getAlias('@frontend_webroot/uploads/watermark.png'));
                             $watermark_width = imagesx($watermark);
                             $watermark_height = imagesy($watermark);
 
@@ -214,7 +216,7 @@ class ProductController extends Controller
                             $starty = $size[1] - $watermark_height;
 
                             Imagine::watermark($dir . '/' . $imageModel->id . '.jpg',
-                                '@frontend/web/uploads/watermark.png',
+                                '@frontend_webroot/uploads/watermark.png',
                                 [
                                     $startx,
                                     $starty,
@@ -242,7 +244,7 @@ class ProductController extends Controller
     {
         $model = $this->findModel($id);
 
-        $dir = Yii::getAlias('@frontend/web/uploads/product/' . $model->id);
+        $dir = Yii::getAlias('@frontend_webroot/uploads/product/' . $model->id);
 
         FileHelper::removeDirectory($dir);
 

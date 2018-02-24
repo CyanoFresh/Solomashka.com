@@ -1,4 +1,5 @@
 <?php
+
 use backend\assets\AppAsset;
 use common\models\Order;
 use yii\bootstrap\Nav;
@@ -27,75 +28,77 @@ $newOrders = Order::find()->where(['status' => Order::STATUS_NEW])->count();
 
 <header>
     <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
+    if (!Yii::$app->user->isGuest) {
+        NavBar::begin([
+            'brandLabel' => Yii::$app->name,
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'navbar-inverse navbar-fixed-top',
+            ],
+        ]);
 
-    // Left menu
-    $menuItemsLeft = [
-        //['label' => Yii::t('backend', 'Home'), 'url' => ['site/index']],
-        [
-            'label' => Yii::t('backend', 'Shop'),
-            'items' => [
-                ['label' => Yii::t('backend', 'Products'), 'url' => ['product/index']],
-                ['label' => Yii::t('backend', 'Categories'), 'url' => ['category/index']],
-                ['label' => Yii::t('backend', 'Statuses'), 'url' => ['status/index']],
-            ]
-        ],
-        ['label' => Yii::t('backend', 'Slides'), 'url' => ['slide/index']],
-        ['label' => Yii::t('backend', 'Pages'), 'url' => ['page/index']],
-        ['label' => Yii::t('backend', 'Subscribers'), 'url' => ['subscriber/index']],
-        [
-            'label' => Yii::t('backend', 'Orders')
-                . ' '
-                . Html::tag('span', $newOrders, ['class' => 'badge']),
-            'url' => ['order/index'],
-        ],
-    ];
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => $menuItemsLeft,
-        'encodeLabels' => false,
-    ]);
-
-    // Right menu
-    $menuItems[] = [
-        'label' => Yii::t('backend', 'View site'),
-        'url' => Yii::$app->urlManagerFrontEnd->baseUrl,
-        'options' => [
-            'target' => '_blank'
-        ],
-        'linkOptions' => [
-            'target' => '_blank'
-        ]
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => Yii::t('backend', 'Login'), 'url' => ['site/login']];
-    } else {
-        $menuItems[] = [
-            'label' => Yii::t('backend', 'Logout ({username})', [
-                'username' => Yii::$app->user->identity->username
-            ]),
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
+        // Left menu
+        $menuItemsLeft = [
+            //['label' => Yii::t('backend', 'Home'), 'url' => ['site/index']],
+            [
+                'label' => Yii::t('backend', 'Shop'),
+                'items' => [
+                    ['label' => Yii::t('backend', 'Products'), 'url' => ['product/index']],
+                    ['label' => Yii::t('backend', 'Categories'), 'url' => ['category/index']],
+                    ['label' => Yii::t('backend', 'Statuses'), 'url' => ['status/index']],
+                ]
+            ],
+            ['label' => Yii::t('backend', 'Slides'), 'url' => ['slide/index']],
+            ['label' => Yii::t('backend', 'Pages'), 'url' => ['page/index']],
+            ['label' => Yii::t('backend', 'Subscribers'), 'url' => ['subscriber/index']],
+            [
+                'label' => Yii::t('backend', 'Orders')
+                    . ' '
+                    . Html::tag('span', $newOrders, ['class' => 'badge']),
+                'url' => ['order/index'],
+            ],
         ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav'],
+            'items' => $menuItemsLeft,
+            'encodeLabels' => false,
+        ]);
 
-    NavBar::end();
+        // Right menu
+        $menuItems[] = [
+            'label' => Yii::t('backend', 'View site'),
+            'url' => Yii::$app->urlManagerFrontEnd->baseUrl,
+            'options' => [
+                'target' => '_blank'
+            ],
+            'linkOptions' => [
+                'target' => '_blank'
+            ]
+        ];
+        if (Yii::$app->user->isGuest) {
+            $menuItems[] = ['label' => Yii::t('backend', 'Login'), 'url' => ['site/login']];
+        } else {
+            $menuItems[] = [
+                'label' => Yii::t('backend', 'Logout ({username})', [
+                    'username' => Yii::$app->user->identity->username
+                ]),
+                'url' => ['/site/logout'],
+                'linkOptions' => ['data-method' => 'post']
+            ];
+        }
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => $menuItems,
+        ]);
+
+        NavBar::end();
+    }
     ?>
 </header>
 
 <main>
     <div class="container">
-        <?= Breadcrumbs::widget([
+        <?= Yii::$app->user->isGuest ? '' : Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= $content ?>
