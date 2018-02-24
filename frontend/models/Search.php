@@ -34,9 +34,7 @@ class Search extends ProductSearch
             return $dataProvider;
         }
 
-        $query->orFilterWhere(['like', 'name', $this->search])
-            ->orFilterWhere(['like', 'price', $this->search])
-            ->orFilterWhere(['like', 'date', $this->search])
+        $query->filterWhere(['like', 'name', $this->search])
             ->orFilterWhere(['like', 'slug', $this->search])
             ->orFilterWhere(['like', 'description', $this->search])
             ->orFilterWhere(['like', 'meta_description', $this->search])
