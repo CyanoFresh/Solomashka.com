@@ -135,10 +135,10 @@ class NavBar extends Widget
         <div class="pull-right">
         <ul class="userMenu">
           <li>
-              <a href="' . Yii::$app->params['socialLinks']['vk'] . '" class="soclink" target="_blank">
+              <a href="' . Yii::$app->params['socialLinks']['ig'] . '" class="soclink" target="_blank">
                 <span class="fa-stack">
                   <i class="fa fa-square-o fa-stack-2x"></i>
-                  <i class="fa fa-vk fa-stack-1x"></i>
+                  <i class="fa fa-instagram fa-stack-1x"></i>
                 </span>
               </a>
           </li>

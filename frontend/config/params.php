@@ -5,6 +5,7 @@ return [
     'icon-framework' => 'fa',
     'socialLinks' => [
         'vk' => 'http://vk.com/solomashkaelena',
+        'ig' => 'https://www.instagram.com/elena_biju_solo/',
         'facebook' => 'https://www.facebook.com/solomashkaelena',
     ],
     'email' => [

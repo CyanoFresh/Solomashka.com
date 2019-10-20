@@ -324,3 +324,10 @@ a.desc:after {
 .pagination > li > a {
     background: #fff;
 }
+
+.home-message {
+    text-align: center;
+    padding: 70px 200px;
+    background: #fff;
+    font-size: 16px;
+}
